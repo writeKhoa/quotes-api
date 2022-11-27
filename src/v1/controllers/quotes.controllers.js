@@ -6,7 +6,7 @@ const quotesUpload = async (req, res) => {
     const { username, password, quote, author } = req.body;
 
     // todo check and validate
-    const errorBody = !username || !password || !quote || !author;
+    const errorBody = !username || !password || !quote;
     if (errorBody) {
       return res.status(400).json({ message: "error at request" });
     }
@@ -21,6 +21,11 @@ const quotesUpload = async (req, res) => {
       return res.status(400).json({ message: "quote is existed" });
     }
 
+    if (!author) {
+      const newQuote = await quotes.create({ quote });
+      await newQuote.save();
+      return res.status(200).json({ message: "create quote succcessed" });
+    }
     // todo save quote
     const newQuote = await quotes.create({ quote, author });
     await newQuote.save();
@@ -107,10 +112,7 @@ const adminAccess = async (req, res) => {
     const { username, password } = req.body;
     console.log(process.env.name);
     console.log(process.env.password);
-    if (
-      username !== process.env.name ||
-      password !== process.env.password
-    ) {
+    if (username !== process.env.name || password !== process.env.password) {
       return res.status(400).json({ message: "Not authorization" });
     }
 
