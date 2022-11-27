@@ -4,9 +4,8 @@ Content-Type: application/json
 {
     "username": "khoadeptraiforever",
     "password": "admspbtwoq016578",
-    "quote": "hừm đừng áp dụng phim vào đời sống và cũng đừng coi phim dỡ",
-    "author": "tenkhongdau"
-
+    "quote": "Không bao giờ được dùng những lời đau lòng để làm tổn thương đến người mà bạn yêu thương vào những lúc bạn có tâm trang tồi tệ.",
+    "author": "Khuyết danh"
 }
 
 ###
@@ -19,3 +18,6 @@ GET http://localhost:5000/api/v1/quotes/random
 
 ###
 GET http://localhost:5000/api/v1/quotes/
+
+###
+DELETE http://localhost:5000/api/v1/quotes/638192f2b34e34124cb1b4de

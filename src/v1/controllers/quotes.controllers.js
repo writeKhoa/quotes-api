@@ -89,4 +89,23 @@ const quotesRandom = async (req, res) => {
   }
 };
 
-module.exports = { quotesUpload, quotesList, quotesSearch, quotesRandom };
+const deleteQuote = async (req, res) => {
+  try {
+    const id = req.params.id;
+    if (!id) {
+      return res.status(400).json({ message: "not id" });
+    }
+    await quotes.findByIdAndDelete({ _id: id });
+    return res.status(200).json({ message: "delete successed" });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = {
+  quotesUpload,
+  quotesList,
+  quotesSearch,
+  quotesRandom,
+  deleteQuote,
+};

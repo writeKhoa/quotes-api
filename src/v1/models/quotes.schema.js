@@ -12,7 +12,7 @@ const quotesSchema = Schema(
     author: {
       type: String,
       require: true,
-      default: "",
+      default: "Khuyết danh",
     },
   },
   {
