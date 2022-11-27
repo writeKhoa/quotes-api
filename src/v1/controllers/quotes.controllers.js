@@ -11,7 +11,7 @@ const quotesUpload = async (req, res) => {
       return res.status(400).json({ message: "error at request" });
     }
     const matchUsernameAndPassword =
-      username !== process.env.username && password !== process.env.password;
+      username != process.env.name || password != process.env.password;
     if (matchUsernameAndPassword) {
       return res.status(400).json({ message: "username or password wrong" });
     }
@@ -102,8 +102,28 @@ const deleteQuote = async (req, res) => {
   }
 };
 
+const adminAccess = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    console.log(process.env.name);
+    console.log(process.env.password);
+    if (
+      username !== process.env.name ||
+      password !== process.env.password
+    ) {
+      return res.status(400).json({ message: "Not authorization" });
+    }
+
+    const data = await quotes.find({});
+    return res.status(200).json({ data });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   quotesUpload,
+  adminAccess,
   quotesList,
   quotesSearch,
   quotesRandom,

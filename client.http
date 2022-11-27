@@ -4,7 +4,7 @@ Content-Type: application/json
 {
     "username": "khoadeptraiforever",
     "password": "admspbtwoq016578",
-    "quote": "Không bao giờ được dùng những lời đau lòng để làm tổn thương đến người mà bạn yêu thương vào những lúc bạn có tâm trang tồi tệ.",
+    "quote": "Không bao giờ được dùng những lời đau lòng để làm tổn thương đến người mà bạn yêu thương vào những lúc bạn có tâm trang tồi tệ 2.",
     "author": "Khuyết danh"
 }
 
@@ -21,3 +21,12 @@ GET http://localhost:5000/api/v1/quotes/
 
 ###
 DELETE http://localhost:5000/api/v1/quotes/638192f2b34e34124cb1b4de
+
+###
+GET http://localhost:5000/api/v1/admin
+Content-Type: application/json
+
+{
+    "username": "vietkhoadeptraiforever",
+    "password": "admspbtwoq016578"
+}

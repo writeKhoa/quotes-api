@@ -5,7 +5,7 @@ const {
   quotesList,
   quotesSearch,
   quotesRandom,
-  deleteQuote,
+  deleteQuote,adminAccess
 } = require("../controllers");
 
 router.post("/", quotesUpload);
@@ -17,5 +17,6 @@ router.get("/random", quotesRandom);
 router.get("/search?*", quotesSearch);
 
 router.delete("/:id", deleteQuote);
+router.delete("/admin", deleteQuote);
 
 module.exports = router;
