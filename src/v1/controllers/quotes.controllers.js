@@ -12,6 +12,9 @@ const quotesUpload = async (req, res) => {
     }
     const matchUsernameAndPassword =
       username != process.env.name || password != process.env.password;
+
+    console.log("process.env.name --- ", process.env.name);
+    console.log("matchUsernameAndPassword --- ", matchUsernameAndPassword);
     if (matchUsernameAndPassword) {
       return res.status(400).json({ message: "username or password wrong" });
     }

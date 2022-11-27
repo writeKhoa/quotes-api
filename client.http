@@ -2,10 +2,9 @@ POST http://localhost:5000/api/v1/quotes
 Content-Type: application/json
 
 {
-    "username": "khoadeptraiforever",
+    "username": "vietkhoadeptraiforever",
     "password": "admspbtwoq016578",
-    "quote": "Không bao giờ được dùng những lời đau lòng để làm tổn thương đến người mà bạn yêu thương vào những lúc bạn có tâm trang tồi tệ 2.",
-    "author": "Khuyết danh"
+    "quote": "Nếu bạn nghĩ rằng bản thân quá bé nhỏ để tạo ra sự khác biệt, hãy thử ngủ cùng với 1 con muỗi."
 }
 
 ###
@@ -30,3 +29,6 @@ Content-Type: application/json
     "username": "vietkhoadeptraiforever",
     "password": "admspbtwoq016578"
 }
+
+
+###Trong một khoảnh khắc nào đó, tất cả những chuyện buồn bã, xui xẻo cứ rủ nhau mà đổ xuống cùng một lúc.
