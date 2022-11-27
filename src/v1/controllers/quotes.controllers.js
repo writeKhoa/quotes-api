@@ -8,7 +8,7 @@ const quotesUpload = async (req, res) => {
     // todo check and validate
     const errorBody = !username || !password || !quote;
     if (errorBody) {
-      return res.status(400).json({ message: "error at request" });
+      return res.status(400).json({ message: "miss json" });
     }
     const matchUsernameAndPassword =
       username != process.env.name || password != process.env.password;
