@@ -3,20 +3,16 @@ const { quotes } = require("../models");
 
 const quotesUpload = async (req, res) => {
   try {
-    const { username, password, quote, author } = req.body;
+    const { password, quote, author } = req.body;
 
     // todo check and validate
-    const errorBody = !username || !password || !quote;
+    const errorBody = !password || !quote;
     if (errorBody) {
       return res.status(400).json({ message: "miss json" });
     }
-    const matchUsernameAndPassword =
-      username != process.env.name || password != process.env.password;
 
-    console.log("process.env.name --- ", process.env.name);
-    console.log("matchUsernameAndPassword --- ", matchUsernameAndPassword);
-    if (matchUsernameAndPassword) {
-      return res.status(400).json({ message: "username or password wrong" });
+    if (password != process.env.password) {
+      return res.status(400).json({ message: "password wrong" });
     }
 
     const isExistQuote = await quotes.findOne({ quote }).exec();
@@ -112,10 +108,10 @@ const deleteQuote = async (req, res) => {
 
 const adminAccess = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { password } = req.body;
     console.log(process.env.name);
     console.log(process.env.password);
-    if (username !== process.env.name || password !== process.env.password) {
+    if (password !== process.env.password) {
       return res.status(400).json({ message: "Not authorization" });
     }
 

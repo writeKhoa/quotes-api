@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(
   cors({
     optionsSuccessStatus: 200,
-    origin: ["http://localhost:3000"],
+    origin: [process.env.CLIENT_ORIGIN, "http://localhost:3000"],
   })
 );
 
