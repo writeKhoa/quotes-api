@@ -1,22 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const {
-  quotesUpload,
-  quotesList,
-  quotesSearch,
-  quotesRandom,
-  deleteQuote,adminAccess
+  quoteController
 } = require("../controllers");
 
-router.post("/", quotesUpload);
+router.post("/", quoteController.quotesUpload);
 
-router.get("/", quotesList);
+router.get("/", quoteController.quotesList);
 
-router.get("/random", quotesRandom);
+router.get("/random", quoteController.quotesRandom);
 
-router.get("/search?*", quotesSearch);
+router.get("/search?*", quoteController.quotesSearch);
 
-router.delete("/:id", deleteQuote);
-router.delete("/admin", deleteQuote);
+router.delete("/:id", quoteController.deleteQuote);
 
 module.exports = router;

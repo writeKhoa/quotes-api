@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { adminAccess } = require("../controllers");
+const { quoteController } = require("../controllers");
 
-router.get("/", adminAccess);
+router.get("/", quoteController.adminAccess);
 
 module.exports = router;
