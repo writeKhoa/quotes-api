@@ -1,17 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const {
-  quoteController
-} = require("../controllers");
+const { quoteController: controller } = require("../controllers");
+const { verifyToken: middleware } = require("../middlewares");
 
-router.post("/", quoteController.quotesUpload);
+//! create
+router.post("/", middleware.verifyAccessToken, controller.createQuote);
 
-router.get("/", quoteController.quotesList);
+//! update
+router.put("/", middleware.verifyAccessToken, controller.updateQuote);
 
-router.get("/random", quoteController.quotesRandom);
+//! read
+router.post("/list", controller.readQuotes);
 
-router.get("/search?*", quoteController.quotesSearch);
+//! delete
+router.delete("/:key", middleware.verifyAccessToken, controller.deleteQuote);
 
-router.delete("/:id", quoteController.deleteQuote);
+// not middleware
+router.get("/random", controller.readRandomQuotes);
 
 module.exports = router;

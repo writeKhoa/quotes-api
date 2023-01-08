@@ -1,3 +1,4 @@
-const quotes = require("./quotes.schema");
-
-module.exports = { quotes };
+module.exports = {
+  quotesBucket: require("./quotes.schema"),
+  protectors: require("./protector.schema"),
+};

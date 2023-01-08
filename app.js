@@ -2,17 +2,14 @@ require("dotenv").config("");
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
-if (process.env.MODE === "development") {
-  const morgan = require("morgan");
-  app.use(morgan("dev"));
-}
+const cookieParser = require("cookie-parser");
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(
   cors({
     optionsSuccessStatus: 200,
-    origin: [process.env.CLIENT_ORIGIN, "http://localhost:3000"],
+    origin: [process.env.CLIENT_ORIGIN],
   })
 );
 
